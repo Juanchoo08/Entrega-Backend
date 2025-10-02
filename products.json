@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1
+  },
+  {
+    "id": 2,
+    "title": "Seven-Up",
+    "description": "Bebida gaseosa",
+    "code": "CC",
+    "price": 1210,
+    "status": true,
+    "stock": 26,
+    "category": "Bebidas",
+    "thumbnails": []
+  }
+]
