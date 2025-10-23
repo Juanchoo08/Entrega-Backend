@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Realtime Products</title>
+    </head>
+    
+    <body>
+    <h1>Realtime Products</h1>
+
+    <section>
+        <h2>Crear producto (vía websocket)</h2>
+        <form id="productForm">
+        <input name="title" placeholder="title" required/>
+        <input name="description" placeholder="description" required/>
+        <input name="code" placeholder="code" required/>
+        <input name="price" placeholder="price" type="number" required/>
+        <label>
+            status:
+            <select name="status">
+            <option value="true">true</option>
+            <option value="false">false</option>
+            </select>
+        </label>
+        <input name="stock" placeholder="stock" type="number" required/>
+        <input name="category" placeholder="category" required/>
+        <input name="thumbnails" placeholder="comma separated urls"/>
+        <button type="submit">Crear</button>
+        </form>
+        <div id="formResult"></div>
+    </section>
+
+    <hr/>
+
+    <section>
+        <h2>Lista de productos</h2>
+        <ul id="productsList"></ul>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/realtime.js"></script>
+    </body>
+</html>

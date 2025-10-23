@@ -1,15 +1,23 @@
 [
   {
-    "id": 1
+    "id": 1,
+    "title": "aa",
+    "description": "aa",
+    "code": "aa",
+    "price": 1,
+    "status": true,
+    "stock": 21,
+    "category": "a",
+    "thumbnails": []
   },
   {
     "id": 2,
-    "title": "Seven-Up",
-    "description": "Bebida gaseosa",
-    "code": "CC",
-    "price": 1210,
+    "title": "Fanta",
+    "description": "Bebida sabor naranja con gaseosa",
+    "code": "F285673",
+    "price": 150,
     "status": true,
-    "stock": 26,
+    "stock": 30,
     "category": "Bebidas",
     "thumbnails": []
   }

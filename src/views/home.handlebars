@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"><title>Home - Productos</title>
+    </head>
+    <body>
+        <h1>Productos</h1>
+        <ul>
+            {{#each products}}
+            <li>ID: {{this.id}} — {{this.title}} — ${{this.price}}</li>
+            {{/each}}
+        </ul>
+        <a href="/realtimeproducts">Ir a Realtime Products</a>
+    </body>
+</html>

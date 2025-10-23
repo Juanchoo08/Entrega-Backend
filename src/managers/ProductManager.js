@@ -8,7 +8,7 @@ class ProductManager {
     async _readFile() {
     try {
         const data = await fs.readFile(this.path, "utf-8");
-        return JSON.parse(data);
+        return JSON.parse(data || "[]");
     } catch {
         return [];
     }
@@ -24,13 +24,19 @@ class ProductManager {
 
     async getProductById(id) {
     const products = await this._readFile();
-    return products.find(p => p.id == id);
+    return products.find(p => String(p.id) === String(id));
     }
 
     async addProduct(product) {
     const products = await this._readFile();
+
+    if (products.some(p => p.code === product.code)) {
+        throw new Error("El campo 'code' ya existe para otro producto");
+    }
+
+    const maxId = products.reduce((max, p) => (p.id > max ? p.id : max), 0);
     const newProduct = {
-        id: products.length ? products[products.length - 1].id + 1 : 1,
+        id: maxId + 1,
         ...product,
     };
     products.push(newProduct);
@@ -40,18 +46,20 @@ class ProductManager {
 
     async updateProduct(id, update) {
     const products = await this._readFile();
-    const index = products.findIndex(p => p.id == id);
-    if (index === -1) return null;
-    products[index] = { ...products[index], ...update, id: products[index].id };
+    const idx = products.findIndex(p => String(p.id) === String(id));
+    if (idx === -1) return null;
+
+    const preservedId = products[idx].id;
+    products[idx] = { ...products[idx], ...update, id: preservedId };
     await this._writeFile(products);
-    return products[index];
+    return products[idx];
     }
 
     async deleteProduct(id) {
     const products = await this._readFile();
-    const index = products.findIndex(p => p.id == id);
-    if (index === -1) return null;
-    products.splice(index, 1);
+    const idx = products.findIndex(p => String(p.id) === String(id));
+    if (idx === -1) return null;
+    products.splice(idx, 1);
     await this._writeFile(products);
     return true;
     }
