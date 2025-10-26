@@ -12,6 +12,28 @@
   },
   {
     "id": 2,
+    "title": "Manzana",
+    "description": "Fruta Roja",
+    "code": "52356",
+    "price": 105,
+    "status": true,
+    "stock": 16,
+    "category": "Frutas",
+    "thumbnails": []
+  },
+  {
+    "id": 3,
+    "title": "aa",
+    "description": "a",
+    "code": "a",
+    "price": 1,
+    "status": false,
+    "stock": 13,
+    "category": "afw",
+    "thumbnails": []
+  },
+  {
+    "id": 4,
     "title": "Fanta",
     "description": "Bebida sabor naranja con gaseosa",
     "code": "F285673",

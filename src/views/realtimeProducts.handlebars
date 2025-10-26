@@ -6,37 +6,34 @@
     </head>
     
     <body>
-    <h1>Realtime Products</h1>
-
-    <section>
-        <h2>Crear producto (vía websocket)</h2>
-        <form id="productForm">
-        <input name="title" placeholder="title" required/>
-        <input name="description" placeholder="description" required/>
-        <input name="code" placeholder="code" required/>
-        <input name="price" placeholder="price" type="number" required/>
-        <label>
-            status:
+    <div class="container">
+        <h1>Realtime Products</h1>
+        <section>
+            <h2>Crear producto</h2>
+            <form id="productForm">
+            <input name="title" placeholder="Título" required />
+            <input name="description" placeholder="Descripción" required />
+            <input name="code" placeholder="Código" required />
+            <input name="price" type="number" placeholder="Precio" required />
             <select name="status">
-            <option value="true">true</option>
-            <option value="false">false</option>
+                <option value="true">Activo</option>
+                <option value="false">Inactivo</option>
             </select>
-        </label>
-        <input name="stock" placeholder="stock" type="number" required/>
-        <input name="category" placeholder="category" required/>
-        <input name="thumbnails" placeholder="comma separated urls"/>
-        <button type="submit">Crear</button>
-        </form>
-        <div id="formResult"></div>
-    </section>
+            <input name="stock" type="number" placeholder="Stock" required />
+            <input name="category" placeholder="Categoría" required />
+            <input name="thumbnails" placeholder="URLs de imágenes (opcional)" />
+            <button type="submit">Crear producto</button>
+            </form>
+            <div id="formResult"></div>
+        </section>
 
-    <hr/>
+        <hr />
 
-    <section>
-        <h2>Lista de productos</h2>
-        <ul id="productsList"></ul>
-    </section>
-
+        <section>
+            <h2>Lista de productos</h2>
+            <ul id="productsList"></ul>
+        </section>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/realtime.js"></script>
     </body>
