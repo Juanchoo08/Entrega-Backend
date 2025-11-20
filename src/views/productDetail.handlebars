@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>{{product.title}}</h1>
+    <p>{{product.description}}</p>
+    <p>Precio: ${{product.price}}</p>
+    <p>Categoría: {{product.category}}</p>
+    <p>Stock: {{product.stock}}</p>
+    <button id="addBtn" data-id="{{product._id}}">Agregar al carrito</button>
+</div>
+
+<script>
+    const CART_ID = "691f9eba0af7879c3a16a09a";
+    document.getElementById("addBtn").addEventListener("click", async () => {
+    const pid = document.getElementById("addBtn").dataset.id;
+    const res = await fetch(`/api/carts/${CART_ID}/product/${pid}`, { method: "POST" });
+    const data = await res.json();
+    if(data.status === "success") alert("Producto agregado!");
+    else alert("Error: " + (data.message || "ver consola"));
+    });
+</script>
